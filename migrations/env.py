@@ -25,9 +25,8 @@ if config.config_file_name is not None:
 from app.models import ubigeo
 
 
-target_metadata = [
-    Base.metadata
-]
+target_metadata = Base.metadata
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -70,7 +69,7 @@ def run_migrations_online() -> None:
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
-        connect_args={"options": f"-c search_path='{db_property.schema_name}'"}
+        connect_args={"options": "-c search_path=public"}
     )
 
     with connectable.connect() as connection:

@@ -15,7 +15,7 @@ class UbigeoRepository(BaseRepository[Ubigeo, str]):
     def find_all_departments(self) -> List[UbigeoDTO]:
         query = (
             select(Ubigeo.department_code, Ubigeo.department_name)
-            .distinct(Ubigeo.department_code, Ubigeo.province_name)
+            .distinct(Ubigeo.department_code)
             .order_by(Ubigeo.department_code.asc())
         )
         result = self.session.execute(query).all()

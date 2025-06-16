@@ -9,7 +9,7 @@ from app.config.database_config import Base
 class Ubigeo(Base):
     __tablename__ = "ubigeo"
 
-    ubigeo_id: Mapped[str] = mapped_column(String(6), primary_key=True, nullable=False, comment="Unique ubigeo identifier")
+    id: Mapped[str] = mapped_column(String(6), primary_key=True, nullable=False, comment="Unique ubigeo identifier")
     department_name: Mapped[str] = mapped_column(String(50), nullable=False, comment="Department name")
     province_name: Mapped[str] = mapped_column(String(50), nullable=False, comment="Province name")
     district_name: Mapped[str] = mapped_column(Text, nullable=False, comment="District name")

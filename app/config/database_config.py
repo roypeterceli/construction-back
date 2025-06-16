@@ -19,7 +19,7 @@ try:
 
     engine = create_engine(
         connection_url,
-        connect_args={"options": f"-c search_path='{db_property.schema_name}'"},
+        connect_args={"options": "-c search_path=public"},
         poolclass=QueuePool,
         pool_size=10,
         max_overflow=20,

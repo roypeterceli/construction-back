@@ -10,8 +10,10 @@ app = FastAPI(title="Construction UI DB")
 
 Instrumentator().instrument(app).expose(app, include_in_schema=False)
 
+
 """ Handlers """
 add_global_exception_handler(app)
+
 
 """ Middlewares """
 app.add_middleware(
@@ -22,6 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.add_middleware(LoggingMiddleware)
+
 
 """ Routes """
 app.include_router(ubigeo_router)

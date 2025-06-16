@@ -48,13 +48,13 @@ def get_provinces_by_department_and_province(department_code: str, province_code
         )
 
 
-@router.get("/{ubigeo_id}",
+@router.get("/{id}",
             summary="Get ubigeo by id",
             status_code=HTTP_200_OK,
             response_model=ApiResponse[Optional[UbigeoResponse]]
             # dependencies=[Depends(jwt_bearer)]
             )
-def get_by_id(ubigeo_id: str):
+def get_by_id(id: str):
     with service_provider.ubigeo_service() as ubigeo_service:
-        return ApiResponse.ok(ubigeo_service.get_by_id(ubigeo_id))
+        return ApiResponse.ok(ubigeo_service.get_by_id(id))
     
