@@ -1,0 +1,27 @@
+from fastapi import FastAPI
+from prometheus_fastapi_instrumentator import Instrumentator
+from starlette.middleware.cors import CORSMiddleware
+
+from app.exceptions.exception_handler import add_global_exception_handler
+from app.middlewares.logging_middleware import LoggingMiddleware
+from app.routers.ubigeo_router import router as ubigeo_router
+
+app = FastAPI(title="Construction UI DB")
+
+Instrumentator().instrument(app).expose(app, include_in_schema=False)
+
+""" Handlers """
+add_global_exception_handler(app)
+
+""" Middlewares """
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+app.add_middleware(LoggingMiddleware)
+
+""" Routes """
+app.include_router(ubigeo_router)

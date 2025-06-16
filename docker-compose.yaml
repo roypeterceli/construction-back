@@ -1,0 +1,19 @@
+services:
+  ms-wow-starter-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ms-wow-starter-api:latest
+    container_name: ms-wow-starter-api
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    env_file:
+      - .env
+    networks:
+      - starter-network
+
+
+networks:
+  starter-network:
+    external: true

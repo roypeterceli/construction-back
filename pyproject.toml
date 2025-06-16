@@ -1,0 +1,19 @@
+[project]
+name = "your_project_name"
+version = "1.0.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic==1.14.1",
+    "fastapi[standard]>=0.115.11",
+    "fastapi-pagination==0.12.34",
+    "sqlalchemy==2.0.39",
+    "python-dotenv==1.0.1",
+    "psycopg[binary]==3.2.3",
+    "psycopg-pool==3.2.4",
+    "pydantic-settings==2.7.1",
+    "prometheus-fastapi-instrumentator==7.0.2",
+    "python-logstash-async==4.0.1",
+    "pyjwt>=2.10.1"
+]
