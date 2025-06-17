@@ -1,7 +1,24 @@
-# MS WOW Starter
+<p align="center">
+<img src="https://wowperu.pe/_astro/internet-hogar-wow-peru.lf6fogPl.svg" width="auto" height="50">
+</p>
 
-**MS WOW Starter** is a microservice built with Python, FastAPI framework, SQLAlchemy ORM and UV package manager.
+## Acerca de
 
+Wow Perú es una empresa proveedora de internet, telefonia IP y Cable que utiliza una red de Fibra Óptica. En Materia Gris tuvimos el encargo de implementar el sistema de gestión de clientes e instalación de servicios.
+
+## Sobre el proyecto
+
+Este proyecto cubre la necesidad de un sistema de gestión de bd para construcción de instalaciones: [wow-construccion-backend]
+(https://gitlab.com/wow-construccion/backend.construccion.wowperu.pe)
+
+## Encargados del Proyecto
+- Diego Alvarado
+
+### Gestión de Proyecto
+- Cesar Vallejo
+
+### Desarrollo y Base de datos
+- Roy Celino 
 
 ## Prerequisites
 
@@ -10,16 +27,12 @@ Ensure you have the following tools installed on your system before proceeding:
 - **Python**: Version 3.13 or higher.
 - **UV**: Universal package manager for Python.
 
-
 ## Development Environment Setup
 
 ### 1. Setup package manager
-
-This project uses [UV for dependency management](https://docs.astral.sh/uv/getting-started/installation/).
 ```bash
 pip install uv
 ```
-
 ### 2. Activate the Virtual Environment
 
 - On **Windows**:
@@ -38,9 +51,6 @@ To install the dependencies, simply run:
 ```bash
 uv sync
 ```
-
-
-
 ## Running the Project
 
 ### Development Mode
@@ -51,11 +61,11 @@ the necessary environment variables for database connections and application con
 To start the server in development mode, run:
 
 ```bash
-fastapi dev app/main.py --port 9000
+fastapi dev app/main.py --port 9009
 ```
 or
 ```bash
-uvicorn app.main:app --port 9000 --reload
+uvicorn app.main:app --port 9009 --reload
 ```
 
 This will start the server at `http://localhost:9000` with automatic code reload.
@@ -98,11 +108,9 @@ Microservice/
 - **Automatic Reload**: Ideal for rapid and uninterrupted development.
 - **UV Package Manager**: Modern dependency management for efficiency and reliability.
 
-
 ## License
 
 This software is proprietary and intended for internal use only. All rights reserved
 by [WOW TEL S.A.C](https://wowperu.pe/).
 
 ![WOW Logo](https://wowperu.pe/_astro/internet-hogar-wow-peru.lf6fogPl.svg)
-

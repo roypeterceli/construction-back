@@ -43,9 +43,7 @@ def get_provinces_by_department(department_code: str):
             )
 def get_provinces_by_department_and_province(department_code: str, province_code: str):
     with service_provider.ubigeo_service() as ubigeo_service:
-        return ApiResponse.ok(
-            ubigeo_service.get_provinces_by_department_and_province_code(department_code, province_code)
-        )
+        return ApiResponse.ok(ubigeo_service.get_provinces_by_department_and_province_code(department_code, province_code))
 
 
 @router.get("/{id}",
