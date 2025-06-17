@@ -13,7 +13,7 @@ class ZoneService:
 
 
     def get_all(self) -> List[ZoneResponse]:
-        zones = self.zone_repository.find_all()
+        zones = self.zone_repository.find_all_zones()
         return [ZoneResponse.model_validate(zone) for zone in zones]
 
 
@@ -30,12 +30,15 @@ class ZoneService:
         return ZoneResponse.model_validate(response)
 
 
+
     def update(self, zone_id: int, request: ZoneRequest) -> ZoneResponse:
         zone = self.zone_repository.find_by_id(zone_id)
+
         if not zone:
             raise NotFoundException(f"Zone with id {zone_id} not found")
-        zone.name = request.name
-        zone.description = request.description
+
+        zone.zone_id = zone_id
+
         response = self.zone_repository.update(zone)
         return ZoneResponse.model_validate(response)
 

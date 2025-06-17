@@ -5,6 +5,9 @@ from app.config.database_config import SessionLocal
 from app.repositories.ubigeo_repository import UbigeoRepository
 from app.services.ubigeo_service import UbigeoService
 
+from app.repositories.zone_repository import ZoneRepository
+from app.services.zone_service import ZoneService
+
 T = TypeVar("T")
 
 
@@ -28,6 +31,9 @@ class ServiceProvider:
 
     def ubigeo_service(self) -> ContextManager[UbigeoService]:
         return self._get_service(UbigeoService, [UbigeoRepository])
+    
+    def zone_service(self) -> ContextManager[ZoneService]:
+        return self._get_service(ZoneService, [ZoneRepository])
 
 
 service_provider = ServiceProvider()
