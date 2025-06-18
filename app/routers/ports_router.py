@@ -9,7 +9,7 @@ from app.schemas.ports_schema import PortsResponse, PortsRequest
 from app.utils.jwt_util import jwt_bearer
 
 router = APIRouter(
-    prefix="/ports",
+    prefix="/api/ports",
     tags=["Ports"]
 )
 

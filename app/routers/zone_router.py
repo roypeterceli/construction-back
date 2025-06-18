@@ -9,9 +9,29 @@ from app.schemas.zone_schema import ZoneResponse, ZoneRequest
 from app.utils.jwt_util import jwt_bearer
 
 router = APIRouter(
-    prefix="/zones",
+    prefix="/api/zones",
     tags=["Zone"]
 )
+
+
+@router.get("",
+            summary="Get all zones",
+            status_code=HTTP_200_OK,
+            response_model=ApiResponse[List[ZoneResponse]]
+            )
+def get_all_zones():
+    with service_provider.zone_service() as zone_service:
+        return ApiResponse.ok(zone_service.get_all())
+
+
+@router.get("/{zone_id}",
+            summary="Get zone by id",
+            status_code=HTTP_200_OK,
+            response_model=ApiResponse[Optional[ZoneResponse]]
+            )
+def get_zone_by_id(zone_id: int):
+    with service_provider.zone_service() as zone_service:
+        return ApiResponse.ok(zone_service.get_by_id(zone_id))
 
 
 @router.post("",
@@ -36,21 +56,3 @@ def update_zone(zone_id: int, request: ZoneRequest):
         return ApiResponse.ok(zone_service.update(zone_id, request))
 
 
-@router.get("",
-            summary="Get all zones",
-            status_code=HTTP_200_OK,
-            response_model=ApiResponse[List[ZoneResponse]]
-            )
-def get_all_zones():
-    with service_provider.zone_service() as zone_service:
-        return ApiResponse.ok(zone_service.get_all())
-
-
-@router.get("/{zone_id}",
-            summary="Get zone by id",
-            status_code=HTTP_200_OK,
-            response_model=ApiResponse[Optional[ZoneResponse]]
-            )
-def get_zone_by_id(zone_id: int):
-    with service_provider.zone_service() as zone_service:
-        return ApiResponse.ok(zone_service.get_by_id(zone_id))

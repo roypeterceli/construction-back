@@ -14,11 +14,11 @@ class ZoneResponse(BaseModel):
     ubigeo_department_id: str
     ubigeo_province_id: str
     zone_code: str 
-    troncales: int
-    box_naps: int
-    advance_id: int
-    state_id: int
-    sale_id: int
-    active: bool
+    troncales: int | None = Field(default=0)
+    box_naps: int | None = Field(default=0)
+    advance_id: int | None = Field(default=0)
+    state_id: int | None = Field(default=1)
+    sale_id: int | None = Field(default=1)
+    active: bool | None = Field(default=True)
 
     model_config = ConfigDict(from_attributes=True, populate_by_name=True, alias_generator=to_camel)

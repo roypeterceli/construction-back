@@ -9,7 +9,7 @@ from app.schemas.naps_schema import NapsResponse, NapsRequest
 from app.utils.jwt_util import jwt_bearer
 
 router = APIRouter(
-    prefix="/naps",
+    prefix="/api/naps",
     tags=["Naps"]
 )
 

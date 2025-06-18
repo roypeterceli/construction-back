@@ -9,7 +9,7 @@ from app.schemas.troncal_schema import TroncalResponse, TroncalRequest
 from app.utils.jwt_util import jwt_bearer
 
 router = APIRouter(
-    prefix="/troncals",
+    prefix="/api/troncals",
     tags=["Troncal"]
 )
 
