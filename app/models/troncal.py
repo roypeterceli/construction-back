@@ -17,5 +17,5 @@ class Troncal(AuditorBaseModel):
     troncal_state: Mapped[int] = mapped_column(BigInteger, nullable=False, default=True, comment="")
     sale_id: Mapped[int] = mapped_column(BigInteger, nullable=False, comment="")
 
-    zone = relationship("Zone", back_populates="troncals")
-    node = relationship("Node", back_populates="tot_troncals", cascade="all")
+    # zone = relationship("Zone", back_populates="troncals")
+    # node = relationship("Node", back_populates="tot_troncals", cascade="all")

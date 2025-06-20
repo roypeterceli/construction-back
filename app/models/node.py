@@ -16,5 +16,5 @@ class Node(AuditorBaseModel):
     troncal_id: Mapped[int] = mapped_column(BigInteger,ForeignKey('troncal.troncal_id'), nullable=False, comment="")
     node_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True, comment="Flag to enable or disable flow")
 
-    troncals = relationship("Troncal", back_populates="node")
-    naps = relationship("Nap", back_populates="node", cascade="all")
+    # troncals = relationship("Troncal", back_populates="node")
+    # naps = relationship("Nap", back_populates="node", cascade="all")

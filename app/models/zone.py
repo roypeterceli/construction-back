@@ -24,7 +24,7 @@ class Zone(Base):
     state_id: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
     sale_id: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
 
-    troncals = relationship(Troncal, back_populates="zone", cascade="all")
+    # troncals = relationship(Troncal, back_populates="zone", cascade="all")
 
     created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now(), nullable=False, onupdate=None)
     created_by: Mapped[UUID] = mapped_column(Uuid, nullable=False, default=get_authenticated_user_id, onupdate=None)

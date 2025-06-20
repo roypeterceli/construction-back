@@ -12,7 +12,7 @@ class Ports(AuditorBaseModel):
     port: Mapped[str] = mapped_column(String(250), nullable=True, comment="")
     port_active: Mapped[str] = mapped_column(String(250), nullable=False, comment="")
 
-    nap = relationship("Nap", back_populates="ports")
+    # nap = relationship("Nap", back_populates="ports")
 
-    __table_args__ = (UniqueConstraint('numero', 'nap_id', name='uq_numero_nap'),)
+    # __table_args__ = (UniqueConstraint('numero', 'nap_id', name='uq_numero_nap'),)
 

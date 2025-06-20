@@ -29,11 +29,24 @@ Ensure you have the following tools installed on your system before proceeding:
 
 ## Development Environment Setup
 
-### 1. Setup package manager
+
+### 1. Setup package manager (if not installed)
 ```bash
 pip install uv
 ```
-### 2. Activate the Virtual Environment
+
+
+### 2. Install Dependencies
+
+To install the dependencies, simply run:
+
+```bash
+uv sync
+
+```
+
+
+## 3. Activate the Virtual Environment
 
 - On **Windows**:
   ```bash
@@ -44,13 +57,7 @@ pip install uv
   source .venv/bin/activate
   ```
 
-### 3. Install Dependencies
 
-To install the dependencies, simply run:
-
-```bash
-uv sync
-```
 ## Running the Project
 
 ### Development Mode
@@ -68,7 +75,7 @@ or
 uvicorn app.main:app --port 9009 --reload
 ```
 
-This will start the server at `http://localhost:9000` with automatic code reload.
+This will start the server at `http://localhost:9009` with automatic code reload.
 
 
 ## Project Structure

@@ -13,7 +13,7 @@ class Nap(AuditorBaseModel):
     nap_state: Mapped[int] = mapped_column(BigInteger, nullable=True, comment="")
     nap_active: Mapped[bool] = mapped_column(Boolean, nullable=True, default=True, comment="")
 
-    node = relationship("Node", back_populates="naps")
-    ports = relationship("Ports", back_populates="nap", cascade="all")
+    # node = relationship("Node", back_populates="naps")
+    # ports = relationship("Ports", back_populates="nap", cascade="all")
     
-    __table_args__ = (CheckConstraint('id_ports > 0', name='check_id_ports'),)
+    # __table_args__ = (CheckConstraint('id_ports > 0', name='check_id_ports'),)
