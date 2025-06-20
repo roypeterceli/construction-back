@@ -26,8 +26,8 @@ class ZoneRepository(BaseRepository[Zone, int]):
         return self.session.get(Zone, id)
     
 
-    def save(self, zone: Zone) -> Zone:
-        self.session.add(zone)
-        self.session.commit()
-        self.session.refresh(zone)
-        return zone
+    # def save(self, zone: Zone) -> Zone:
+    #     self.session.add(zone)
+    #     self.session.commit()
+    #     self.session.refresh(zone)
+    #     return zone

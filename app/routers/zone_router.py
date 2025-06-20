@@ -49,7 +49,7 @@ def create_zone(request: ZoneRequest):
             summary="Update a zone by id",
             status_code=HTTP_200_OK,
             response_model=ApiResponse[ZoneResponse],
-            dependencies=[Depends(jwt_bearer)]
+            # dependencies=[Depends(jwt_bearer)]
             )
 def update_zone(zone_id: int, request: ZoneRequest):
     with service_provider.zone_service() as zone_service:
